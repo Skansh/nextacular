@@ -1,11 +1,48 @@
-# Nextacular - Claude Development Guide
+# Nextacular v2.0 - Claude Development Guide
+
+> **Last Updated:** 2025-11-17 | **Version:** 2.0.0
+
+## 🎉 What's New in v2.0
+
+Nextacular v2.0 represents a **major upgrade** with the latest technologies and a revolutionary centralized configuration system.
+
+### Key Improvements
+
+✅ **Latest Technologies**
+- Next.js **15.5.1** (from 13.5.1)
+- React **19.0.0** (from 18.2.0)
+- Prisma **6.19.0** (from 4.8.0) - 90% smaller bundles
+- Tailwind CSS **3.4.17** (from 3.0.11)
+- NextAuth.js **5.0.0** (from 4.24.5)
+- TypeScript **5.7.2** support added
+
+✅ **Centralized Configuration**
+- 100+ configurable environment variables
+- Zero hardcoded values
+- Complete customization via `.env`
+- Feature flags for easy enable/disable
+
+✅ **Enhanced Documentation**
+- [USE_CASES.md](./USE_CASES.md) - 15+ real-world applications
+- [CONFIGURATION_GUIDE.md](./CONFIGURATION_GUIDE.md) - Complete config reference
+- [UPGRADE_V2.md](./UPGRADE_V2.md) - Migration guide from v1.x
+
+### Quick Links
+
+- **[Configuration Guide](./CONFIGURATION_GUIDE.md)** - How to configure everything
+- **[Use Cases](./USE_CASES.md)** - What you can build
+- **[Upgrade Guide](./UPGRADE_V2.md)** - Migrating from v1.x
+- **[README](./README.md)** - Project overview
+
+---
 
 ## Project Overview
 
-**Nextacular** is an open-source multi-tenant SaaS starter kit built with Next.js 13, designed to help developers quickly launch full-stack SaaS platforms with pre-built essential features.
+**Nextacular** is an open-source multi-tenant SaaS starter kit designed to help developers quickly launch full-stack SaaS platforms with pre-built essential features.
 
 **Repository:** nextacular
-**Primary Tech Stack:** Next.js 13.5.1, React 18.2.0, Tailwind CSS, Prisma, PostgreSQL, NextAuth.js
+**Version:** 2.0.0
+**Primary Tech Stack:** Next.js 15.5, React 19, Tailwind CSS 3.4, Prisma 6, PostgreSQL, NextAuth.js 5, TypeScript 5.7
 
 ---
 
@@ -34,7 +71,7 @@ nextacular/
 └── public/                     # Static assets
 ```
 
-### Path Aliases (jsconfig.json)
+### Path Aliases (jsconfig.json / tsconfig.json)
 
 Use these shortcuts throughout the codebase:
 ```javascript
@@ -48,6 +85,99 @@ Use these shortcuts throughout the codebase:
 @/sections/*     → src/sections/*
 @/styles/*       → src/styles/*
 ```
+
+---
+
+## 🔧 Centralized Configuration (NEW in v2.0)
+
+### Overview
+
+All configuration is now centralized in `src/config/app.config.js` and controlled via environment variables. **No hardcoded values anywhere in the codebase!**
+
+### Configuration File
+
+**Location:** `src/config/app.config.js`
+
+```javascript
+import { appConfig } from '@/config/app.config';
+
+// Access any configuration
+const appName = appConfig.app.name;
+const freeLimit = appConfig.subscription.FREE.limits.workspaces;
+const primaryColor = appConfig.theme.colors.primary;
+```
+
+### Environment Variables
+
+**File:** `.env` (copy from `.env.example`)
+
+```env
+# App Branding
+NEXT_PUBLIC_APP_NAME=YourApp
+NEXT_PUBLIC_APP_TAGLINE=Your tagline
+
+# Subscription Plans
+NEXT_PUBLIC_PLAN_FREE_WORKSPACES=1
+NEXT_PUBLIC_PLAN_STANDARD_PRICE=9
+NEXT_PUBLIC_PLAN_PREMIUM_PRICE=29
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_BILLING=true
+NEXT_PUBLIC_ENABLE_CUSTOM_DOMAINS=true
+NEXT_PUBLIC_ENABLE_DARK_MODE=true
+```
+
+### Configuration Categories
+
+| Category | Description | Example Usage |
+|----------|-------------|---------------|
+| `app` | App identity | `appConfig.app.name` |
+| `seo` | SEO metadata | `appConfig.seo.title` |
+| `subscription` | Plan limits & pricing | `appConfig.subscription.FREE.limits` |
+| `theme` | Colors & styling | `appConfig.theme.colors.primary` |
+| `validation` | Input rules | `appConfig.validation.user.name.maxLength` |
+| `ui` | UI behavior | `appConfig.ui.toast.duration` |
+| `api` | API settings | `appConfig.api.swr.refreshInterval` |
+| `features` | Feature flags | `appConfig.features.enableBilling` |
+| `landing` | Landing page content | `appConfig.landing.hero.title` |
+| `messages` | Success/error messages | `appConfig.messages.workspace.created` |
+
+### Helper Functions
+
+```javascript
+import { getConfig, replacePlaceholders } from '@/config/app.config';
+
+// Get nested values
+const maxLength = getConfig('validation.user.name.maxLength');
+
+// Replace placeholders
+const message = replacePlaceholders(
+  'Welcome to {appName}!',
+  { appName: 'MyApp' }
+);
+```
+
+### Quick Customization Examples
+
+**1. Rebrand the entire app:**
+```env
+NEXT_PUBLIC_APP_NAME=MyCompany
+NEXT_PUBLIC_SEO_TITLE=MyCompany - Best SaaS Ever
+```
+
+**2. Change pricing:**
+```env
+NEXT_PUBLIC_PLAN_STANDARD_PRICE=19
+NEXT_PUBLIC_PLAN_PREMIUM_PRICE=49
+```
+
+**3. Disable features:**
+```env
+NEXT_PUBLIC_ENABLE_BILLING=false
+NEXT_PUBLIC_ENABLE_CUSTOM_DOMAINS=false
+```
+
+**For complete documentation:** See [CONFIGURATION_GUIDE.md](./CONFIGURATION_GUIDE.md)
 
 ---
 

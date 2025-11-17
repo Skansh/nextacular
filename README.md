@@ -1,14 +1,26 @@
-# Nextacular🌙
+# Nextacular 🌙 v2.0
 
 ![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/nextacular) ![GitHub package.json version](https://img.shields.io/github/package-json/v/nextacular/nextacular) ![GitHub issues](https://img.shields.io/github/issues/nextacular/nextacular) ![GitHub](https://img.shields.io/github/license/nextacular/nextacular) ![GitHub Repo stars](https://img.shields.io/github/stars/nextacular/nextacular?style=social)
 
-## Quickly launch multi-tenant SaaS applications
+## 🚀 Quickly launch multi-tenant SaaS applications
 
 ![Nextacular - Quickly launch multi-tenant SaaS applications](./public/images/seo-cover.png)
 
-An open-source starter kit that will help you build full-stack multi-tenant SaaS platforms efficiently and help you focus on developing your core SaaS features. Built on top of popular and modern technologies such as Next JS, Tailwind, and Prisma
+An open-source starter kit that will help you build full-stack multi-tenant SaaS platforms efficiently and help you focus on developing your core SaaS features. Built on top of popular and modern technologies such as **Next.js 15**, **React 19**, **Tailwind CSS**, and **Prisma 6**.
 
 **Features** packaged out-of-the-box: **Authentication**, **Billing & Payment**, **Database**, **Email**, **Custom Domains**, **Multi-tenancy**, **Workspaces**, and **Teams**
+
+### ✨ What's New in v2.0
+
+- 🎯 **Centralized Configuration** - 100+ environment variables for complete customization
+- ⚡ **Latest Technologies** - Next.js 15.5, React 19, Prisma 6, Tailwind CSS 3.4
+- 🎨 **Fully Configurable** - No hardcoded values, customize everything via `.env`
+- 📘 **TypeScript Ready** - Full TypeScript support included
+- 🎪 **15+ Use Cases** - Comprehensive guide for different business applications
+- 🚦 **Feature Flags** - Enable/disable features without code changes
+- 📚 **Enhanced Documentation** - Complete guides for configuration and deployment
+
+**[📖 View Full Changelog](./UPGRADE_V2.md)** | **[🔧 Configuration Guide](./CONFIGURATION_GUIDE.md)** | **[💡 Use Cases](./USE_CASES.md)**
 
 ## Live Demo
 
@@ -18,9 +30,69 @@ Nextacular Demo: [https://demo.nextacular.co](https://demo.nextacular.co)
 
 Nextacular Documentation: [https://docs.nextacular.co](https://docs.nextacular.co)
 
-## Getting Started
+## 🚀 Quick Start (v2.0)
 
-Read the quick start here: [https://docs.nextacular.co/getting-started/quick-start](https://docs.nextacular.co/getting-started/quick-start)
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/nextacular/nextacular.git
+cd nextacular
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your configuration:
+
+```env
+# Required
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXTAUTH_SECRET=<generate with: openssl rand -base64 32>
+DATABASE_URL=postgresql://user:password@localhost:5432/database
+
+# Customize Your App
+NEXT_PUBLIC_APP_NAME=YourApp
+NEXT_PUBLIC_APP_TAGLINE=Your amazing tagline
+
+# Configure Plans
+NEXT_PUBLIC_PLAN_STANDARD_PRICE=19
+NEXT_PUBLIC_PLAN_PREMIUM_PRICE=49
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_BILLING=true
+NEXT_PUBLIC_ENABLE_CUSTOM_DOMAINS=true
+```
+
+### 4. Set Up Database
+
+```bash
+npx prisma migrate dev
+npx prisma db seed
+```
+
+### 5. Start Development
+
+```bash
+npm run dev
+```
+
+Visit [http://localhost:3000](http://localhost:3000) 🎉
+
+### 📚 Detailed Documentation
+
+- **[Configuration Guide](./CONFIGURATION_GUIDE.md)** - Complete customization reference
+- **[Use Cases](./USE_CASES.md)** - 15+ real-world applications
+- **[Upgrade Guide](./UPGRADE_V2.md)** - Migrating from v1.x
+- **[Official Docs](https://docs.nextacular.co)** - Full documentation
 
 ## One-Click Deploy to Vercel 🚀
 
@@ -45,32 +117,40 @@ Read the [docs](https://docs.nextacular.co) for more details
 - 👾 Developer Experience
 - 💌 Email Handling
 
-## Tech Stack
+## 🛠 Tech Stack
 
 ### Primary
 
-- [Next.JS](https://nextjs.org) - **13.1.0** (React **18.2.0**)
-- [Tailwind CSS](https://tailwindcss.com) - **3.1.8**
-- [Prisma](https://prisma.io) - **4.4.0**
+- [Next.js](https://nextjs.org) - **15.5.1** (React **19.0.0**)
+- [Tailwind CSS](https://tailwindcss.com) - **3.4.17**
+- [Prisma](https://prisma.io) - **6.19.0** (Rust-free, 90% smaller)
+- [NextAuth.js (Auth.js)](https://authjs.dev) - **5.0.0** (beta)
+- [Stripe](https://stripe.com) - **17.6.0**
+- [TypeScript](https://www.typescriptlang.org) - **5.7.2**
 - [Vercel](https://vercel.com)
 
-## Dependencies
+### Key Dependencies
 
-- Headless UI - 1.7.7
-- Hero Icons - 2.0.12
-- Date FNS - 2.29.3
-- Express Validator - 6.14.2
-- Micro - 9.4.1
-- Next Themes - 0.2.1
-- Nodemailer - 6.8.0
-- React Copy to Clipboard - 5.1.0
-- React Google Analytics - 3.3.1
-- React Hot Toast - 2.4.0
-- React Top Bar Progress Indicator - 4.1.1
-- Slugify - 1.6.5
-- Stripe - 10.13.0
-- SWR - 1.3.0
-- Validator - 13.7.0
+- **UI Components**
+  - Headless UI - 2.2.0
+  - Hero Icons - 2.2.0
+  - React Hot Toast - 2.4.1
+  - Next Themes - 0.4.4
+
+- **Data & API**
+  - SWR - 2.2.5
+  - Date FNS - 4.1.0
+  - Express Validator - 7.2.0
+
+- **Payments & Analytics**
+  - Stripe JS - 5.2.0
+  - React GA4 - 2.1.0
+
+- **Utilities**
+  - Nodemailer - 6.9.16
+  - Slugify - 1.6.6
+  - Validator - 13.12.0
+  - i18next - 24.2.0
 
 ## Built With Nextacular
 

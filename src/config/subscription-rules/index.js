@@ -1,20 +1,34 @@
 import { SubscriptionType } from '@prisma/client';
+import { appConfig } from '@/config/app.config';
+
+/**
+ * Subscription Rules
+ *
+ * These rules are now centralized in app.config.js and can be configured
+ * via environment variables. See CONFIGURATION_GUIDE.md for details.
+ */
 
 const rules = {
   [SubscriptionType.FREE]: {
-    customDomains: 1,
-    members: 1,
-    workspaces: 1,
+    customDomains: appConfig.subscription.FREE.limits.customDomains,
+    members: appConfig.subscription.FREE.limits.members,
+    workspaces: appConfig.subscription.FREE.limits.workspaces,
+    storage: appConfig.subscription.FREE.limits.storage,
+    apiCalls: appConfig.subscription.FREE.limits.apiCalls,
   },
   [SubscriptionType.STANDARD]: {
-    customDomains: 3,
-    members: 5,
-    workspaces: 5,
+    customDomains: appConfig.subscription.STANDARD.limits.customDomains,
+    members: appConfig.subscription.STANDARD.limits.members,
+    workspaces: appConfig.subscription.STANDARD.limits.workspaces,
+    storage: appConfig.subscription.STANDARD.limits.storage,
+    apiCalls: appConfig.subscription.STANDARD.limits.apiCalls,
   },
   [SubscriptionType.PREMIUM]: {
-    customDomains: 5,
-    members: 10,
-    workspaces: 10,
+    customDomains: appConfig.subscription.PREMIUM.limits.customDomains,
+    members: appConfig.subscription.PREMIUM.limits.members,
+    workspaces: appConfig.subscription.PREMIUM.limits.workspaces,
+    storage: appConfig.subscription.PREMIUM.limits.storage,
+    apiCalls: appConfig.subscription.PREMIUM.limits.apiCalls,
   },
 };
 
