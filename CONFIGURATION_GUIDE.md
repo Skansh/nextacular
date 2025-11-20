@@ -1,8 +1,28 @@
 # Nextacular Configuration Guide
 
+> ⚠️ **v2.0 Status:** Currently in **alpha** - Configuration system is complete but integration into components/pages is in progress (15%). See [STATUS.md](./STATUS.md) for details.
+
 ## Overview
 
-Nextacular v2.0 introduces a **centralized configuration system** that makes it incredibly easy to customize every aspect of your SaaS application without touching the codebase. All configuration is done through environment variables and the `src/config/app.config.js` file.
+Nextacular v2.0 introduces a **centralized configuration system** that makes it easy to customize every aspect of your SaaS application. All configuration is done through environment variables and the `src/config/app.config.js` file.
+
+### Implementation Status
+
+**✅ Ready to Use:**
+- Configuration file (`src/config/app.config.js`)
+- Environment variables template (`.env.example`)
+- Helper functions (`getConfig`, `replacePlaceholders`)
+- Subscription rules integration
+- SWR configuration integration
+- Progress bar configuration integration
+
+**🚧 In Progress:**
+- Component integration (most components still use hardcoded values)
+- Page integration (landing page, dashboard, etc.)
+- Email template integration
+- Validation rules integration
+
+Check [STATUS.md](./STATUS.md) for detailed integration progress.
 
 ---
 

@@ -1,4 +1,4 @@
-# Nextacular 🌙 v2.0
+# Nextacular 🌙 v2.0-alpha
 
 ![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/nextacular) ![GitHub package.json version](https://img.shields.io/github/package-json/v/nextacular/nextacular) ![GitHub issues](https://img.shields.io/github/issues/nextacular/nextacular) ![GitHub](https://img.shields.io/github/license/nextacular/nextacular) ![GitHub Repo stars](https://img.shields.io/github/stars/nextacular/nextacular?style=social)
 
@@ -10,17 +10,25 @@ An open-source starter kit that will help you build full-stack multi-tenant SaaS
 
 **Features** packaged out-of-the-box: **Authentication**, **Billing & Payment**, **Database**, **Email**, **Custom Domains**, **Multi-tenancy**, **Workspaces**, and **Teams**
 
-### ✨ What's New in v2.0
+> ⚠️ **v2.0 Status:** Currently in **alpha** - Infrastructure complete, code integration in progress. See [STATUS.md](./STATUS.md) for details.
 
-- 🎯 **Centralized Configuration** - 100+ environment variables for complete customization
-- ⚡ **Latest Technologies** - Next.js 15.5, React 19, Prisma 6, Tailwind CSS 3.4
-- 🎨 **Fully Configurable** - No hardcoded values, customize everything via `.env`
-- 📘 **TypeScript Ready** - Full TypeScript support included
-- 🎪 **15+ Use Cases** - Comprehensive guide for different business applications
-- 🚦 **Feature Flags** - Enable/disable features without code changes
-- 📚 **Enhanced Documentation** - Complete guides for configuration and deployment
+### ✨ What's New in v2.0 (In Progress)
 
-**[📖 View Full Changelog](./UPGRADE_V2.md)** | **[🔧 Configuration Guide](./CONFIGURATION_GUIDE.md)** | **[💡 Use Cases](./USE_CASES.md)**
+**✅ Completed:**
+- ⚡ **Latest Dependencies** - All packages upgraded to latest stable
+  - Next.js 15.5.1, React 19.0.0, Prisma 6.19.0, Tailwind CSS 3.4.17
+- 🎯 **Configuration Infrastructure** - Centralized config system created
+  - `src/config/app.config.js` with 100+ configurable options
+  - Comprehensive `.env.example` template
+- 📘 **TypeScript Support** - Full TypeScript setup included
+- 📚 **Enhanced Documentation** - 15+ use cases, config guide, upgrade guide
+
+**🚧 In Progress (15% complete):**
+- 🎨 **Code Integration** - Replacing hardcoded values with config
+- 🔄 **Breaking Changes** - Updating for Next.js 15 & React 19
+- 🧪 **Testing** - Verifying all features work
+
+**[📊 Full Status](./STATUS.md)** | **[📖 Changelog](./UPGRADE_V2.md)** | **[🔧 Config Guide](./CONFIGURATION_GUIDE.md)** | **[💡 Use Cases](./USE_CASES.md)**
 
 ## Live Demo
 
@@ -30,62 +38,51 @@ Nextacular Demo: [https://demo.nextacular.co](https://demo.nextacular.co)
 
 Nextacular Documentation: [https://docs.nextacular.co](https://docs.nextacular.co)
 
-## 🚀 Quick Start (v2.0)
+## 🚀 Quick Start
 
-### 1. Clone the Repository
+> ⚠️ **Important:** v2.0 is currently in **alpha**. The infrastructure is complete but code integration is in progress. You may encounter errors. See [STATUS.md](./STATUS.md) for details.
+
+### For v1.x (Stable - Recommended for Production)
 
 ```bash
+# Use the stable v1.x branch
+git clone -b v1.x https://github.com/nextacular/nextacular.git
+cd nextacular
+npm install
+# Follow v1.x setup instructions
+```
+
+### For v2.0-alpha (Development - Help Us Complete It!)
+
+```bash
+# Clone the repository
 git clone https://github.com/nextacular/nextacular.git
 cd nextacular
-```
 
-### 2. Install Dependencies
-
-```bash
+# Install dependencies (includes Next.js 15, React 19, etc.)
 npm install
-```
 
-### 3. Configure Environment
+# Generate Prisma client
+npx prisma generate
 
-```bash
+# Configure environment
 cp .env.example .env
-```
+# Edit .env with your configuration
 
-Edit `.env` with your configuration:
-
-```env
-# Required
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-NEXTAUTH_SECRET=<generate with: openssl rand -base64 32>
-DATABASE_URL=postgresql://user:password@localhost:5432/database
-
-# Customize Your App
-NEXT_PUBLIC_APP_NAME=YourApp
-NEXT_PUBLIC_APP_TAGLINE=Your amazing tagline
-
-# Configure Plans
-NEXT_PUBLIC_PLAN_STANDARD_PRICE=19
-NEXT_PUBLIC_PLAN_PREMIUM_PRICE=49
-
-# Feature Flags
-NEXT_PUBLIC_ENABLE_BILLING=true
-NEXT_PUBLIC_ENABLE_CUSTOM_DOMAINS=true
-```
-
-### 4. Set Up Database
-
-```bash
+# Set up database
 npx prisma migrate dev
 npx prisma db seed
-```
 
-### 5. Start Development
-
-```bash
+# Start development (may have errors)
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) 🎉
+**Expected Issues:**
+- NextAuth v5 needs migration
+- Hardcoded "Nextacular" still appears everywhere
+- Some features may not work until integration complete
+
+**Want to help?** Check [STATUS.md](./STATUS.md) for tasks you can contribute to!
 
 ### 📚 Detailed Documentation
 

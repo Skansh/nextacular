@@ -1,8 +1,10 @@
-# Nextacular v2.0 - Claude Development Guide
+# Nextacular v2.0-alpha - Claude Development Guide
 
-> **Last Updated:** 2025-11-17 | **Version:** 2.0.0
+> **Last Updated:** 2025-11-17 | **Version:** 2.0.0-alpha | **Status:** Infrastructure Complete, Integration In Progress (15%)
 
-## 🎉 What's New in v2.0
+## 🎉 What's New in v2.0 (Alpha)
+
+> ⚠️ **Current Status:** Infrastructure is complete, but code integration is in progress. See [STATUS.md](./STATUS.md) for detailed progress.
 
 Nextacular v2.0 represents a **major upgrade** with the latest technologies and a revolutionary centralized configuration system.
 

@@ -1,8 +1,30 @@
-# Upgrade Guide: Nextacular v1.x to v2.0
+# Upgrade Guide: Nextacular v1.x to v2.0-alpha
+
+> ⚠️ **Status:** v2.0 is currently in **alpha**. Infrastructure is complete but code integration is in progress (15%). See [STATUS.md](./STATUS.md) for current status.
 
 ## 🎉 What's New in v2.0
 
 Nextacular v2.0 is a **major upgrade** that brings the codebase to modern standards with the latest versions of all dependencies and introduces a powerful centralized configuration system.
+
+### Current Implementation Status
+
+**✅ Complete:**
+- All dependencies upgraded to latest versions
+- Centralized configuration system created
+- Comprehensive documentation written
+- Build configuration updated
+
+**🚧 In Progress:**
+- Code integration (replacing hardcoded values)
+- NextAuth v5 migration
+- Breaking changes fixes
+- Testing
+
+**⏳ Not Started:**
+- Full feature testing
+- Production deployment validation
+
+See [STATUS.md](./STATUS.md) for detailed progress.
 
 ---
 
@@ -471,11 +493,15 @@ Make sure to review these new guides:
 
 After upgrading:
 
-1. **Review new features** in USE_CASES.md
-2. **Customize your app** using CONFIGURATION_GUIDE.md
-3. **Update branding** via environment variables
-4. **Add new features** you need
-5. **Deploy** to production
+1. **Check [STATUS.md](./STATUS.md)** for current implementation status
+2. **Review new features** in USE_CASES.md
+3. **Customize your app** using CONFIGURATION_GUIDE.md
+4. **Help complete integration** - See contributing section in STATUS.md
+5. **Wait for stable release** before deploying to production
+
+## ⚠️ Production Warning
+
+**DO NOT use v2.0-alpha in production yet.** The infrastructure is complete but code integration is still in progress. Stick with v1.x for production deployments until v2.0 is stable.
 
 ---
 
